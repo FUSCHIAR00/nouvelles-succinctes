@@ -42,6 +42,19 @@
         cursor: pointer;
         font-weight: bold;
     }
+    
+  .neon-rose {
+    color: #ff00ff; /* Couleur rose fuschia */
+    font-weight: bold;
+    text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff; /* L'effet lumineux */
+    animation: clignotement 1s infinite alternate; /* L'animation */
+  }
+
+  @keyframes clignotement {
+    from { opacity: 1; }
+    to { opacity: 0.3; }
+  }
+    
 </style>
 </head>
 <body>
@@ -68,7 +81,7 @@
     Sans queue ni tête, certes.<br>
     Esquisse d’un chemin, non : d’une zone,<br>
     propice à l’évanouissement,<br>
-    la quintessence,<br>
+    la <span class="neon-rose">quintessence</span>,<br>
     et la perte de sens.</p>
 </div>
 
