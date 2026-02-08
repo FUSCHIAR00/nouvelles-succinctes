@@ -1,1 +1,70 @@
-wtest
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>FUSCHIAR</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background-color: #000;
+            color: #ff00aa; /* rose fuchsia */
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .update-button {
+            display: inline-block;
+            padding: 12px 24px;
+            margin-bottom: 60px;
+            background-color: #ff00aa;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .chapter {
+            margin-bottom: 120px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Début / Titre -->
+    <h1>FUSCHIAR 0.0</h1>
+
+    <!-- Bouton mise à jour -->
+    <a href="#latest" class="update-button">Se mettre à jour</a>
+
+    <!-- Chapitre initial (vide pour le prototype) -->
+    <div class="chapter">
+        <h2>FUSCHIAR 0.0</h2>
+        <p></p>
+    </div>
+
+    <!--
+        🔽 AJOUTE TES NOUVEAUX CHAPITRES ICI
+        Chaque nouveau chapitre va plus bas
+    -->
+
+    <div class="chapter">
+        <h2>FUSCHIAR 0.1</h2>
+        <p></p>
+    </div>
+
+    <!-- Dernier chapitre (point d’ancrage) -->
+    <div class="chapter" id="latest">
+        <h2>FUSCHIAR 0.2</h2>
+        <p></p>
+    </div>
+
+</body>
+</html>
