@@ -1,70 +1,228 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>FUSCHIAR</title>
-
-    <style>
-        body {
-            margin: 0;
-            padding: 40px;
-            background-color: #000;
-            color: #ff00aa; /* rose fuchsia */
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.6;
-        }
-
-        h1 {
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
-        .update-button {
-            display: inline-block;
-            padding: 12px 24px;
-            margin-bottom: 60px;
-            background-color: #ff00aa;
-            color: #000;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 30px;
-            cursor: pointer;
-        }
-
-        .chapter {
-            margin-bottom: 120px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FUSCHIAR</title>
+<style>
+    body {
+        background-color: black;
+        color: white;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.5;
+        padding: 20px;
+    }
+    h1 {
+        color: fuchsia;
+        font-size: 3em;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    h2 {
+        color: fuchsia;
+        font-size: 2em;
+        margin-top: 50px;
+    }
+    .chapter {
+        margin-bottom: 50px;
+    }
+    .sommaire {
+        position: sticky;
+        top: 0;
+        background-color: black;
+        padding: 10px 0;
+        z-index: 100;
+    }
+    .sommaire button {
+        background-color: fuchsia;
+        color: black;
+        border: none;
+        padding: 5px 10px;
+        margin-right: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+</style>
 </head>
 <body>
 
-    <!-- Début / Titre -->
+<!-- Sommaire -->
+<div class="sommaire">
+    <button onclick="scrollToChapter('chap0')">0.0</button>
+    <button onclick="scrollToChapter('chap01')">0.1</button>
+    <button onclick="scrollToChapter('chap02')">0.2</button>
+    <button onclick="scrollToChapter('chap021')">0.21</button>
+    <button onclick="scrollToChapter('chap03')">0.3</button>
+    <button onclick="scrollToChapter('chap031')">0.31</button>
+    <button onclick="scrollToChapter('chap04')">0.4</button>
+    <button onclick="scrollToChapter('chap05')">0.5</button>
+    <button onclick="scrollToChapter('chap06')">0.6</button>
+    <button onclick="scrollToChapter('chap07')">0.7</button>
+    <button onclick="scrollToChapter('chap08')">0.8</button>
+</div>
+
+<!-- Chapitre 0.0 -->
+<div class="chapter" id="chap0">
     <h1>FUSCHIAR 0.0</h1>
+    <p>Écriture machinique de nouvelles succinctes.<br>
+    Sans queue ni tête, certes.<br>
+    Esquisse d’un chemin, non : d’une zone,<br>
+    propice à l’évanouissement,<br>
+    la quintessence,<br>
+    et la perte de sens.</p>
+</div>
 
-    <!-- Bouton mise à jour -->
-    <a href="#latest" class="update-button">Se mettre à jour</a>
+<!-- Chapitre 0.1 -->
+<div class="chapter" id="chap01">
+    <h2>FUSCHIAR 0.1</h2>
+    <p>⟊⫶⟊ tend le bras et traverse quelque chose.<br>
+    La figure d’⟊⫶⟊ tombe au sol, et roule sur les pieds d’⟊⫶⟊.<br>
+    ⟊⫶⟊ prend appui sur le lavabo.</p>
+    <p>Un nuage de buée se dissipe dans la salle de bain.<br>
+    Le miroir ne montre plus rien : c’est ⟊⫶⟊ qu’⟊⫶⟊ a traversé, ⟊⫶⟊-évaporé·e.</p>
+    <p>Les mots que ⟊⫶⟊ emploie pour décrire ne sont jamais les bons,<br>
+    et ⟊⫶⟊ ne sait jamais pourquoi.<br>
+    ⟊⫶⟊ voit pourtant dans sa tête naître, s’affirmer puis décroître,<br>
+    avec pour seule juge : ⟊⫶⟊-même, qui jouit puérilement des logiques folles et illogiques.</p>
+    <p>Une locomotative sans rail qui bombarde,<br>
+    et pourtant les mots que ⟊⫶⟊ emploie ne sont jamais les bons.</p>
+    <p>C’est frustrant, mais c’est sûrement cette frustration qui donne matière à écrire.<br>
+    En tout cas, ⟊⫶⟊ ne relit pas souvent ces mots et demande à ChatGPT de corriger.<br>
+    Les données sont vendues, ⟊⫶⟊ fait perdre du travail aux correcteur·ices de texte,<br>
+    et les métadonnées polluent.<br>
+    Des terrains sont illégalement récupérés pour construire des data centers<br>
+    qui font exploser la poche de gens n’ayant plus besoin de poches.<br>
+    Les mails que ⟊⫶⟊ envoie suivent la même logique : mails, documents stockés sur des drives, PDFs.<br>
+    Bref, ce que ⟊⫶⟊ écrit n’est jamais qu’un mot : c’est un échec à toutes les échelles.<br>
+    Ils ne parviennent à décrire leurs objets et enclenchent une catastrophe par perte de sens,<br>
+    impossibilité à dire, et deviennent victimes-bourreaux de la timidité et de la censure<br>
+    qui font tourner autour du pot.</p>
+    <p>Toutes ces pages-tentatives échouées polluent absurdement.</p>
+    <p>Un·e ami·e a dit à ⟊⫶⟊ qu’iel se relisait systématiquement.<br>
+    ⟊⫶⟊ n’a pas aimé le mot systématique, associé à la relecture,<br>
+    parce que cela semblait ennuyeux et autoritaire.<br>
+    Alors ⟊⫶⟊ l’a méprisé, ⟊⫶⟊-même l’avoue.</p>
+    <p>Mais ⟊⫶⟊ n’a jamais pensé qu’elle dirait le contraire.</p>
+    <p>⟊⫶⟊ vit sa crise d’ado et croit avoir compris Nietzsche après avoir lu un demi-livre.</p>
+    <p>En tout cas, ⟊⫶⟊ a beaucoup de mots assemblés sur des pages,<br>
+    mais ces pages sont soit à l’état fœtal, non encore nées,<br>
+    soit à l’état de cendre, déjà consumées.<br>
+    ⟊⫶⟊ n’aime pas s’ennuyer, mais adore les longs trajets de bus pour s’ennuyer.<br>
+    ⟊⫶⟊ ne sait pas vraiment ce qui est aimé ou non,<br>
+    simplement parce que ⟊⫶⟊ n’a jamais accepté que ses actions existent dans le monde des autres.</p>
+    <p>⟊⫶⟊ sait que politiquement, ce n’est pas très correct de penser ainsi,<br>
+    mais plus généralement, ⟊⫶⟊ n’a jamais accepté le fait de pouvoir exister.</p>
+    <p>Pour ⟊⫶⟊, ⟊⫶⟊ n’existe pas.<br>
+    La figure de ⟊⫶⟊ est intime dans le miroir de la salle de bain, et d’autres la voient.<br>
+    C’est n’importe quoi, puisque c’est le visage de ⟊⫶⟊.<br>
+    ⟊⫶⟊ est-elle profondément égoïste ?</p>
+    <p>⟊⫶⟊ perd patience, une tasse en porcelaine à la main, avec des fleurs dessinées dessus.<br>
+    Sur le mur contre lequel ⟊⫶⟊ s’adosse, une tapisserie avec encore des fleurs.<br>
+    Si tout pouvait être en motifs floraux, ⟊⫶⟊ le ferait.</p>
+    <p>Mais ⟊⫶⟊ est en location et n’ose pas faire de trous dans les murs.<br>
+    ⟊⫶⟊ préfère regarder un bleu-de-gris moche le soir,<br>
+    son napperon en dentelle sur les coudes, plutôt que de manifester sa présence quelque part.<br>
+    ⟊⫶⟊ ne veut pas laisser de trace.<br>
+    ⟊⫶⟊ se faufile, nettoie, plie, rage, frotte, lave après son passage.<br>
+    Comme la mère, mais ⟊⫶⟊ n’est pas la mère,<br>
+    pour la simple raison que la mère est hétérosexuelle, et ⟊⫶⟊ est lesbienne.</p>
+    <p>⟊⫶⟊ joue sa vie particulièrement à fond, non pas parce que la vie serait syncrétique<br>
+    du bon endroit au bon moment, cet endroit qui est l’objectif unique d’une vie,<br>
+    celui de se trouver et de s’expandre, de faire imploser son noyau pour briller intensément ;<br>
+    mais celui de l’éparpillement.</p>
+    <p>⟊⫶⟊ joue son rôle à fond, non pas parce qu’il est unique,<br>
+    mais parce que iel est convaincu·e qu’il est parmi tant d’autres,<br>
+    et que seul le hasard a mené ⟊⫶⟊ jusqu’aux moindres gestes que personne ne voit.<br>
+    Alors ⟊⫶⟊ intensifie ces détails qui ont été donnés à nourrir, pour que ces choses se voient.</p>
+</div>
 
-    <!-- Chapitre initial (vide pour le prototype) -->
-    <div class="chapter">
-        <h2>FUSCHIAR 0.0</h2>
-        <p></p>
-    </div>
+<!-- Chapitre 0.2 -->
+<div class="chapter" id="chap02">
+    <h2>0.2 CRAPULE</h2>
+    <p>⟊⫶⟊ reçoit un texto.<br>
+    Il est sûrement 23h, ⟊⫶⟊ traîne.<br>
+    Elle ouvre le message et lit :<br>
+    “Crapule est morte”</p>
+    <p>⟊⫶⟊ regarde la provenance du message, C’est un ami.<br>
+    ⟊⫶⟊ relit : “Crapule est morte”<br>
+    C’était le chien de son ami, il s’appelait Crapule.</p>
+    <p>Le chien était mort dans sa cabane. C’était la nuit, en Bretagne.<br>
+    Le chien était comme endormi sur le canapé, mais il ne s’est jamais réveillé.<br>
+    Le lendemain, un brasier a été brûlé pour lui, mais ⟊⫶⟊ n’y était pas.</p>
+    <p>Trois ans plus tard, ⟊⫶⟊ trouve les photos sur Facebook de ce brasier.<br>
+    C’était un brasier de géant dans la nuit noire de la Bretagne, ⟊⫶⟊ pense.</p>
+    <p>Enfin, ⟊⫶⟊ a voulu chercher le corps de ce chien, elle cherchait l’emplacement de sa tombe,<br>
+    mais toustes lui disaient : “Mais les chiens n’ont pas de tombe”.</p>
+</div>
 
-    <!--
-        🔽 AJOUTE TES NOUVEAUX CHAPITRES ICI
-        Chaque nouveau chapitre va plus bas
-    -->
+<!-- Chapitre 0.21 -->
+<div class="chapter" id="chap021">
+    <h2 style="color:violet;">0.21 INTERLUDE SPÉCIALE</h2>
+    <p>Comme si le capitalisme tardif était une grosse machine type déglorificateur,<br>
+    ⟊⫶⟊ n’a aucune gloire.<br>
+    Son visage, dissout, dans les yeux qui la regardent,<br>
+    Et d’un coup une rame de tram bondée devient un cimetière à identité,<br>
+    Dans lequel les tissus poreux d’⟊⫶⟊ s’engluâtrent, encore, mollement.<br>
+    ⟊⫶⟊-vaporé, humidale amygdale,<br>
+    Chaleur texturé dans la moiteur de la sueur, qui coule sur des fronts épuisés.</p>
+</div>
 
-    <div class="chapter">
-        <h2>FUSCHIAR 0.1</h2>
-        <p></p>
-    </div>
+<!-- Chapitre 0.3 -->
+<div class="chapter" id="chap03">
+    <h2>0.3 SPÉCIAL RÉSURRECTION</h2>
+    <p>⟊⫶⟊ - stopie SPECIAL<br>
+    résurrection "GAME PLAY"</p>
+    <p>⟊⫶⟊ n’est pas sûre d’avoir vécue, ⟊⫶⟊ ne se souvient ni de ses chaussures, ni de son visage.<br>
+    ⟊⫶⟊ se dissipe dans la buée à chaque douche, dans chaque vapeurs brûlantes de l’eau.<br>
+    Lorsque la porte s’ouvre, le froid s’engouffre dans le petit habitacle.<br>
+    La fumée chaude est aspirée, systématiquement. Elle se dissipe, le corps d’⟊⫶⟊ se crispe puis S’évapore.</p>
+</div>
 
-    <!-- Dernier chapitre (point d’ancrage) -->
-    <div class="chapter" id="latest">
-        <h2>FUSCHIAR 0.2</h2>
-        <p></p>
-    </div>
+<!-- Chapitre 0.31 -->
+<div class="chapter" id="chap031">
+    <h2 style="color:violet;">0.31 INTERLUDE</h2>
+    <p>Golem de verre<br>
+    Titan de sable<br>
+    Un jour où il faisait nuit</p>
+    <p>Les dates d’anniversaires de morts sont silencieuses et inquiétantes,<br>
+    il n’y a que les vivant*es pour les animer.</p>
+</div>
+
+<!-- Chapitre 0.4 -->
+<div class="chapter" id="chap04">
+    <h2>0.4</h2>
+    <p>⟊⫶⟊ ouvre un livre qu’elle prend pour modèle et reste persuadée que la couverture d’un livre est la tentative de mise en espace d’une pensée...</p>
+</div>
+
+<!-- Chapitre 0.5 -->
+<div class="chapter" id="chap05">
+    <h2>0.5</h2>
+    <p>Le coussin d’⟊⫶⟊ s’effondre sur lui-même. Son rouge est plus rose et les fleurs sous-cutanées...</p>
+</div>
+
+<!-- Chapitre 0.6 -->
+<div class="chapter" id="chap06">
+    <h2>0.6</h2>
+    <p>⟊⫶⟊ est dans le tram direction la Méditerranée, ou le taf selon les jours...</p>
+</div>
+
+<!-- Chapitre 0.7 -->
+<div class="chapter" id="chap07">
+    <h2>0.7 SPÉCIAL AUTO-PHAGIE</h2>
+    <p>⟊⫶⟊ a eu l’occasion d’une expérience que peut-être rares peuvent vivre, c’est-à-dire l’auto-phagie...</p>
+</div>
+
+<!-- Chapitre 0.8 -->
+<div class="chapter" id="chap08">
+    <h2>0.8 SPECTACLE</h2>
+    <p>Il a plu. ⟊⫶⟊ est d’autant plus séparé du sol qu’un miroir d’eau l’a détaché...</p>
+</div>
+
+<script>
+function scrollToChapter(id) {
+    document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+}
+</script>
 
 </body>
 </html>
