@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FUSCHIAR - Édition Augmentée</title>
+<title>FUSCHIAR</title>
 <style>
     /* --- IMPORTATION DES POLICES --- */
     @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
@@ -27,7 +27,6 @@
         margin-bottom: 30px;
         text-transform: uppercase;
         text-align: center;
-        letter-spacing: 5px;
     }
     
     h2 {
@@ -103,6 +102,10 @@
         text-shadow: 0 0 5px fuchsia;
     }
 
+    .btn-derouler::after {
+        content: " ↓";
+    }
+
     /* --- INTERLUDES (ROUGE) --- */
     .chapter.interlude h2,
     .chapter.interlude p,
@@ -116,30 +119,35 @@
     .neon-rose {
         color: #ff00ff;
         font-weight: bold;
-        text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
+        text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff;
         animation: clignotement 1s infinite alternate;
     }
 
+    /* Effet scintillant pour la lumière */
     .brillance {
-        color: #fff;
+        color: #ff00ff;
         text-shadow: 0 0 8px #fff, 0 0 12px #ff00ff;
         animation: scintiller 0.8s infinite alternate;
     }
 
+    /* Effet dégoulinant pour l'eau/salle de bain */
     .degoulinant {
-        color: #f1c40f; /* Couleur chaude/urine */
-        text-shadow: 2px 2px 5px #95a5a6;
+        color: #00ffff;
+        text-shadow: 2px 2px 5px #005555;
+        position: relative;
         display: inline-block;
         animation: goutte 2s infinite ease-in-out;
     }
 
+    /* Effet tourbillon pour l'altération/drogue */
     .tourbillon {
         color: #9d00ff;
         display: inline-block;
-        filter: blur(0.3px);
+        filter: blur(0.5px);
         animation: distorsion 3s infinite linear;
     }
 
+    /* Effet floral */
     .floral {
         color: #00ff66;
         font-style: italic;
@@ -147,30 +155,44 @@
     .floral::before { content: " ✿ "; }
     .floral::after { content: " ✿ "; }
 
-    /* Glitch Corps/Esprit spécifique */
-    .glitch-logic::after {
-        content: "le corps";
-        color: fuchsia;
-        animation: switch-logic 0.4s infinite;
-        font-weight: bold;
-    }
-
-    @keyframes switch-logic {
-        0%, 49% { content: "le corps"; }
-        50%, 100% { content: "l'esprit"; }
+    .intro-special {
+        font-family: 'Georgia', serif;
+        font-size: 1.4em;
+        color: white;
+        text-shadow: 0 0 5px rgba(255,255,255,0.5);
+        display: block;
+        margin-bottom: 20px;
+        border-left: 3px solid fuchsia;
+        padding-left: 15px;
     }
 
     /* Animations */
-    @keyframes clignotement { from { opacity: 1; } to { opacity: 0.5; } }
-    @keyframes scintiller { from { opacity: 1; } to { opacity: 0.6; } }
-    @keyframes goutte { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
-    @keyframes distorsion { 
-        0% { transform: rotate(0deg); } 
-        50% { transform: rotate(1deg) scale(1.02); filter: hue-rotate(20deg); } 
-        100% { transform: rotate(0deg); } 
+    @keyframes clignotement {
+        from { opacity: 1; }
+        to { opacity: 0.5; }
     }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes scintiller {
+        from { opacity: 1; text-shadow: 0 0 10px #ff00ff; }
+        to { opacity: 0.6; text-shadow: 0 0 20px #fff; }
+    }
+    @keyframes goutte {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(3px); filter: blur(0.5px); }
+    }
+    @keyframes distorsion {
+        0% { transform: rotate(0deg) scale(1); }
+        50% { transform: rotate(2deg) scale(1.05); filter: hue-rotate(45deg); }
+        100% { transform: rotate(0deg) scale(1); }
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
 
+    @media (max-width: 600px) {
+        h1 { font-size: 2em; }
+        h2 { font-size: 1.5em; }
+    }
 </style>
 </head>
 <body>
@@ -178,9 +200,15 @@
 <div class="sommaire">
     <button onclick="scrollToChapter('chap0')">0.0</button>
     <button onclick="scrollToChapter('chap01')">0.1</button>
-    <button onclick="scrollToChapter('chap011')">0.11</button>
     <button onclick="scrollToChapter('chap02')">0.2</button>
     <button onclick="scrollToChapter('chap021')">INT</button>
+    <button onclick="scrollToChapter('chap03')">0.3</button>
+    <button onclick="scrollToChapter('chap031')">INT</button>
+    <button onclick="scrollToChapter('chap04')">0.4</button>
+    <button onclick="scrollToChapter('chap05')">0.5</button>
+    <button onclick="scrollToChapter('chap06')">0.6</button>
+    <button onclick="scrollToChapter('chap07')">0.7</button>
+    <button onclick="scrollToChapter('chap08')">0.8</button>
 </div>
 
 <h1>FUSCHIAR</h1>
@@ -188,89 +216,195 @@
 <div class="chapter" id="chap0">
     <h2>0.0</h2>
     <div class="debut">
-        <span style="border-left: 3px solid fuchsia; padding-left: 15px; font-style: italic;">
+        <span class="intro-special">
             Le constat est posé, FUSCHIARDE, qui a perdu sa substance, est blanche, malade et lesbienne.
         </span>
     </div>
-    <button class="btn-derouler" onclick="toggleSuite(this)">dérouler la suite</button>
+    <button class="btn-derouler" onclick="toggleSuite(this)">dérouler la suite de la nouvelle</button>
     <div class="suite">
         <p>Écriture machinique de nouvelles succinctes.<br>
-        La <span class="neon-rose">quintessence</span> et la perte de sens.</p>
+        Sans queue ni tête, certes.<br>
+        Esquisse d’un chemin, non : d’une zone,<br>
+        propice à l’évanouissement,<br>
+        la <span class="neon-rose">quintessence</span>,<br>
+        et la perte de sens.</p>
     </div>
 </div>
 
 <div class="chapter" id="chap01">
     <h2>FUSCHIAR 0.1</h2>
+    
     <div class="debut">
         <p>⟊⫶⟊ tend le bras et traverse quelque chose.<br>
+        La figure d’⟊⫶⟊ tombe au sol et roule sur les pieds d’⟊⫶⟊.<br>
         ⟊⫶⟊ prend appui sur le <span class="degoulinant">lavabo</span>.</p>
     </div>
-    <button class="btn-derouler" onclick="toggleSuite(this)">dérouler la suite</button>
-    <div class="suite">
-        <p>... ⟊⫶⟊ perd patience, une tasse en porcelaine avec des <span class="floral">motifs de pétales</span> dessinés dessus. Sur le mur, une tapisserie avec encore des <span class="floral">ornements botaniques</span>. Si tout pouvait être en motifs <span class="floral">floraux</span>, ⟊⫶⟊ le ferait.</p>
-    </div>
-</div>
 
-<div class="chapter" id="chap011">
-    <h2>0.11 DISSOCIATION</h2>
-    <div class="debut">
-        <p>⟊⫶⟊ s’enfonce dans un fauteuil rose et boit de l’<span class="degoulinant">eau chaude</span> qui ressemble à de la pisse.<br>
-        Pas par couleur, mais par tiédeur, sans goût, goût du tiède.</p>
-    </div>
     <button class="btn-derouler" onclick="toggleSuite(this)">dérouler la suite de la nouvelle</button>
+
     <div class="suite">
-        <p>La sœur de ⟊⫶⟊ entre dans le salon rosâtre,<br>
-        les <span class="floral">fioritures végétales</span> débordent de tous les vases, dégoulinent sur les tommettes.<br>
-        La sœur de ⟊⫶⟊ est ⟊⫶⟊, et inversement. C’est une seule personne,<br>
-        mais une <span class="tourbillon">monstruosité bien ficelée</span>.</p>
+        <p>Un nuage de <span class="degoulinant">buée</span> se dissipe dans la <span class="degoulinant">salle de bain</span>.<br>
+        Le <span class="degoulinant">miroir</span> ne montre plus rien : c’est ⟊⫶⟊ qu’iel a traversé, ⟊⫶⟊-<span class="degoulinant">évaporé·e</span>.</p>
 
-        <p>Enfin, quand l’esprit de ⟊⫶⟊ est plat comme plexiglas <span class="brillance">glissant</span>,<br>
-        ⟊⫶⟊ écoute plus attentivement. Recherche un élan de passion ou d’obsession<br>
-        pour regonfler les pneus d’une carcasse en ferraille.</p>
+        <p>Les mots qu’⟊⫶⟊ emploie pour décrire ne sont jamais les bons, et iel ne sait jamais pourquoi. ⟊⫶⟊ voit pourtant dans sa tête naître, s’affirmer puis décroître, avec pour seul·e juge : ⟊⫶⟊-même, qui jouit puérilement des logiques folles et illogiques.</p>
 
-        <p>La sœur parle d’un grand ménage. On pourrait lécher le sol et snifer sur les <b>plinthes</b>.<br>
-        L’appartement est astiqué... ⟊⫶⟊ veut savoir si le filtre a été vidé, la quantité de poussière !<br>
-        Les tasses aux <span class="floral">arabesques de corolles</span> ne sont pas calcaires ;<br>
-        elles <span class="brillance">brillent</span>, pire : elles <span class="brillance">luisent</span>.</p>
+        <p>Une locomotivaive sans rail qui bombarde, et pourtant les mots qu’⟊⫶⟊ emploie ne sont jamais les bons.</p>
 
-        <p>Plus tard, ⟊⫶⟊ observe un couple hétérosexuel sur le canapé d’en face.<br>
-        Sentiment d’être spectatrice d’un événement déjà vécu, mais observé depuis autre part.<br>
-        Double peine : l’épée de Damoclès s’abat.<br>
-        ⟊⫶⟊ se félicite de la <span class="tourbillon">dissociation obtenue</span>.</p>
+        <p>C’est frustrant, mais c’est sûrement cette frustration qui donne matière à écrire. En tout cas, ⟊⫶⟊ ne relit pas souvent ces mots et demande à ChatGPT de les corriger. Les données sont vendues, ⟊⫶⟊ fait perdre du travail aux correcteur·ices de texte, et les métadonnées polluent. Des terrains sont illégalement récupérés pour construire des data centers qui font exploser la poche de gens n’ayant plus besoin de poches.</p>
 
-        <p>⟊⫶⟊ l’avait bloqué sur son téléphone à l’aéroport,<br>
-        23h, moins de 24h passées en Albanie, peur pure :<br>
-        <span class="neon-rose">Pure peur.</span></p>
+        <p>Les mails qu’⟊⫶⟊ envoie suivent la même logique : mails, documents stockés sur des drives, PDFs. Bref, ce que ⟊⫶⟊ écrit n’est jamais qu’un mot : c’est un échec à toutes les échelles. Iel ne parvient pas à décrire ses objets et enclenchent une catastrophe par <span class="tourbillon">perte de sens</span>, impossibilité à dire, et devient victime-bourreau de la timidité et de la censure qui font tourner autour du pot. Toutes ces pages-tentatives échouées polluent absurdement.</p>
 
-        <p>Tasse de tilleul sans miel, infusion d’herbe seule, mode analyse.<br>
-        Comme une rétrospective engourdie, sentir le poids d’un bras sur son épaule.<br><br>
-        Finalement : impression de ne pas avoir existé durant l’hétérosexualité,<br>
-        avoir séparé <span class="glitch-logic"></span> de <span class="glitch-logic" style="animation-direction: reverse;"></span>.</p>
+        <p>Un·e ami·e a dit à ⟊⫶⟊ qu’iel se relisait systématiquement. ⟊⫶⟊ n’a pas aimé le mot « systématique », associé à la relecture, parce que cela semblait ennuyeux et autoritaire. Alors ⟊⫶⟊ l’a méprisé, ⟊⫶⟊-même l’avoue. Mais ⟊⫶⟊ n’a jamais pensé que iel dirait le contraire.</p>
+
+        <p>⟊⫶⟊ vit sa crise d’ado et croit avoir compris Nietzsche après avoir lu un demi-livre.</p>
+
+        <p>En tout cas, ⟊⫶⟊ a beaucoup de mots assemblés sur des pages, mais ces pages sont soit à l’état fœtal, non encore nées, soit à l’état de cendre, déjà consumées. ⟊⫶⟊ n’aime pas s’ennuyer, mais adore les longs trajets de bus pour s’ennuyer. Iel ne sait pas vraiment ce qui est aimé ou non, simplement parce que ⟊⫶⟊ n’a jamais accepté que ses actions existent dans le monde des autres.</p>
+
+        <p>⟊⫶⟊ sait que politiquement, ce n’est pas très correct de penser ainsi, mais plus généralement, ⟊⫶⟊ n’a jamais accepté le fait de pouvoir exister.</p>
+
+        <p>Pour ⟊⫶⟊, ⟊⫶⟊ n’existe pas. La figure de ⟊⫶⟊ est intime dans le <span class="degoulinant">miroir</span> de la <span class="degoulinant">salle de bain</span>, et d’autres la voient. C’est n’importe quoi, puisque c’est le visage de ⟊⫶⟊. Iel est-iel profondément égoïste ?</p>
+
+        <p>⟊⫶⟊ perd patience, une tasse en porcelaine à la main, avec des <span class="floral">fleurs</span> dessinées dessus. Sur le mur contre lequel ⟊⫶⟊ s’adosse, une tapisserie avec encore des <span class="floral">fleurs</span>. Si tout pouvait être en motifs <span class="floral">floraux</span>, ⟊⫶⟊ le ferait.</p>
+
+        <p>Mais ⟊⫶⟊ est en location et n’ose pas faire de trous dans les murs. Iel préfère regarder un bleu-de-gris moche le soir, son napperon en dentelle sur les coudes, plutôt que de manifester sa présence quelque part. ⟊⫶⟊ ne veut pas laisser de trace. Iel se faufile, <span class="degoulinant">nettoie</span>, plie, rage, <span class="degoulinant">frotte</span>, <span class="degoulinant">lave</span> après son passage. Comme la mère, mais ⟊⫶⟊ n’est pas la mère, pour la simple raison que la mère est hétérosexuelle et ⟊⫶⟊ est lesbienne.</p>
+
+        <p>⟊⫶⟊ joue sa vie particulièrement à fond, non pas parce que la vie serait syncrétique du bon endroit au bon moment, cet endroit qui est l’objectif unique d’une vie, celui de se trouver et de s’expandre, de faire imploser son noyau pour <span class="brillance">briller intensément</span>, mais celui de l’éparpillement.</p>
+
+        <p>⟊⫶⟊ joue son rôle à fond, non pas parce qu’iel est unique, mais parce qu’iel est convaincu·e d’être parmi tant d’autres, et que seul le hasard a mené ⟊⫶⟊ jusqu’aux moindres gestes que personne ne voit. Alors iel intensifie ces détails qui ont été donnés à nourrir, pour que ces choses se <span class="brillance">voient</span>.</p>
+
+        <p>Ce n’est pas la convergence vers un point qui a mené ⟊⫶⟊ à observer les <span class="floral">jardinets</span> de l’étage du dessous. Ce n’est pas ⟊⫶⟊ en majuscule qui insiste sur la particularité de la vie, mais la profusion prolifique de rôles à enfiler comme des chaussettes. ⟊⫶⟊ prend plaisir à s’habiller et à se déshabiller sans cesse.</p>
+
+        <p>Si ⟊⫶⟊ pensait s’amuser, iel ne savait pas encore que iel faisait partie du jeu. Et les pions déplacés n’étaient rien face aux règles imposées par l’hétéronormativité, le patriarcat, le capitalisme tardif et les bourgeois·es devenus shamans à perles.</p>
+
+        <p>⟊⫶⟊ avait l’impression que son identité <span class="tourbillon">changeait</span> lorsque iel changeait de chaussures. Alors ⟊⫶⟊ a opté pour une paire qu’iel n’a plus jamais quittée, par peur.</p>
+
+        <p>Parfois, ⟊⫶⟊ sent sa pensée plate et plane. Ce moment de paix est désagréable. ⟊⫶⟊ vit pour les choses fortes, les passions, l’obsession. Quand la pensée est calme, ⟊⫶⟊ retrouve la sensation du <span class="tourbillon">tramadol</span> ou des <span class="tourbillon">somnifères</span> de son père.</p>
+
+        <p>⟊⫶⟊ se rappelle ses premières <span class="tourbillon">défonces</span> mal assumées, déambulant sur un <span class="tourbillon">sol tournoyant</span>, de la cuisine à sa chambre, passant par le <span class="tourbillon">vertigineux</span> couloir rose de la maison de ses parents. Toute jeune, ⟊⫶⟊ découvre le pouvoir de l’<span class="tourbillon">altération</span> de l’état par de simples petites ingestions.</p>
+
+        <p>Tout en croisant le regard de sa mère qui lui parle, lui parle sans cesse avec les yeux, ⟊⫶⟊ lutte pour que ses <span class="tourbillon">pupilles gonflées</span> ne tombent pas de ses orbites. Iel ne comprend pas très bien, mais iel est <span class="tourbillon">défoncé·e</span> et pourrait s’effondrer d’une seconde à l’autre.</p>
+
+        <p>Les <span class="tourbillon">somnifères</span> de son père sont bien réels, ⟊⫶⟊ existe à travers leur action et sa surprise quant à celle-ci n’a pas de borne. Iel s’écroule quelques mètres plus loin et ne se réveillera que le lendemain. ⟊⫶⟊ expérimente la <span class="tourbillon">défonce</span> par curiosité : celle d’exister par l’intermédiaire d’une <span class="tourbillon">claque chimique</span>. Et ça marche.</p>
     </div>
 </div>
 
 <div class="chapter" id="chap02">
     <h2>0.2 CRAPULE</h2>
     <div class="debut">
-        <p>⟊⫶⟊ reçoit un texto. "Crapule est morte".</p>
+        <p>⟊⫶⟊ reçoit un texto.<br>
+        Il est sûrement 23h, ⟊⫶⟊ traîne.</p>
     </div>
-    <button class="btn-derouler" onclick="toggleSuite(this)">dérouler la suite</button>
+    <button class="btn-derouler" onclick="toggleSuite(this)">dérouler la suite de la nouvelle</button>
     <div class="suite">
-        <p>C’était le chien de son ami... Un brasier de géant dans la nuit noire de la Bretagne.</p>
+        <p>Elle ouvre le message et lit :<br>
+        “Crapule est morte”</p>
+        <p>⟊⫶⟊ regarde la provenance du message, C’est un ami.<br>
+        ⟊⫶⟊ relit : “Crapule est morte”<br>
+        C’était le chien de son ami, il s’appelait Crapule.</p>
+        <p>Le chien était mort dans sa cabane. C’était la nuit, en Bretagne.<br>
+        Le chien était comme endormi sur le canapé, mais il ne s’est jamais réveillé.<br>
+        Le lendemain, un brasier a été brûlé pour lui, mais ⟊⫶⟊ n’y était pas.</p>
+        <p>Trois ans plus tard, ⟊⫶⟊ trouve les photos sur Facebook de ce brasier.<br>
+        C’était un brasier de géant dans la nuit noire de la Bretagne, ⟊⫶⟊ pense.</p>
+        <p>Enfin, ⟊⫶⟊ a voulu chercher le corps de ce chien, elle cherchait l’emplacement de sa tombe,<br>
+        mais toustes lui disaient : “Mais les chiens n’ont pas de tombe”.</p>
+    </div>
+</div>
+
+<div class="chapter interlude" id="chap021">
+    <h2>INTERLUDE</h2>
+    <div class="debut">
+        <p>Comme si le capitalisme tardif était une grosse machine type déglorificateur,<br>
+        ⟊⫶⟊ n’a aucune gloire.</p>
+    </div>
+    <button class="btn-derouler" onclick="toggleSuite(this)">dérouler la suite de la nouvelle</button>
+    <div class="suite">
+        <p>Son visage, dissout, dans les yeux qui la regardent,<br>
+        Et d’un coup une rame de tram bondée devient un cimetière à identité,<br>
+        Dans lequel les tissus poreux d’⟊⫶⟊ s’engluâtrent, encore, mollement.<br>
+        ⟊⫶⟊-vaporé, humidale amygdale,<br>
+        Chaleur texturé dans la moiteur de la sueur, qui coule sur des fronts épuisés.</p>
+    </div>
+</div>
+
+<div class="chapter" id="chap03">
+    <h2>0.3 SPÉCIAL RÉSURRECTION</h2>
+    <div class="debut">
+        <p>⟊⫶⟊ - stopie SPECIAL<br>
+        résurrection "GAME PLAY"</p>
+    </div>
+    <button class="btn-derouler" onclick="toggleSuite(this)">dérouler la suite de la nouvelle</button>
+    <div class="suite">
+        <p>⟊⫶⟊ n’est pas sûre d’avoir vécue, ⟊⫶⟊ ne se souvient ni de ses chaussures, ni de son visage.<br>
+        ⟊⫶⟊ se dissipe dans la buée à chaque douche, dans chaque vapeurs brûlantes de l’eau.<br>
+        Lorsque la porte s’ouvre, le froid s’engouffre dans le petit habitacle.<br>
+        La fumée chaude est aspirée, systématiquement. Elle se dissipe, le corps d’⟊⫶⟊ se crispe puis S’évapore.</p>
+    </div>
+</div>
+
+<div class="chapter interlude" id="chap031">
+    <h2>INTERLUDE</h2>
+    <div class="debut">
+        <p>Golem de verre<br>
+        Titan de sable<br>
+        Un jour où il faisait nuit</p>
+    </div>
+    <button class="btn-derouler" onclick="toggleSuite(this)">dérouler la suite de la nouvelle</button>
+    <div class="suite">
+        <p>Les dates d’anniversaires de morts sont silencieuses et inquiétantes,<br>
+        il n’y a que les vivant*es pour les animer.</p>
+    </div>
+</div>
+
+<div class="chapter" id="chap04">
+    <h2>0.4</h2>
+    <div class="debut">
+        <p>⟊⫶⟊ ouvre un livre qu’elle prend pour modèle et reste persuadée que la couverture d’un livre est la tentative de mise en espace d’une pensée...</p>
+    </div>
+</div>
+
+<div class="chapter" id="chap05">
+    <h2>0.5</h2>
+    <div class="debut">
+        <p>Le coussin d’⟊⫶⟊ s’effondre sur lui-même. Son rouge est plus rose et les fleurs sous-cutanées...</p>
+    </div>
+</div>
+
+<div class="chapter" id="chap06">
+    <h2>0.6</h2>
+    <div class="debut">
+        <p>⟊⫶⟊ est dans le tram direction la Méditerranée, ou le taf selon les jours...</p>
+    </div>
+</div>
+
+<div class="chapter" id="chap07">
+    <h2>0.7 SPÉCIAL AUTO-PHAGIE</h2>
+    <div class="debut">
+        <p>⟊⫶⟊ a eu l’occasion d’une expérience que peut-être rares peuvent vivre, c’est-à-dire l’auto-phagie...</p>
+    </div>
+</div>
+
+<div class="chapter" id="chap08">
+    <h2>0.8 SPECTACLE</h2>
+    <div class="debut">
+        <p>Il a plu. ⟊⫶⟊ est d’autant plus séparé du sol qu’un miroir d’eau l’a détaché...</p>
     </div>
 </div>
 
 <script>
 function scrollToChapter(id) {
     const element = document.getElementById(id);
-    if (element) { element.scrollIntoView({behavior: 'smooth', block: 'start'}); }
+    if (element) {
+        element.scrollIntoView({behavior: 'smooth', block: 'start'});
+    }
 }
 
 function toggleSuite(btn) {
     var suite = btn.nextElementSibling;
     if (suite.style.display === "block") {
         suite.style.display = "none";
-        btn.innerHTML = "dérouler la suite";
+        btn.innerHTML = "dérouler la suite de la nouvelle";
+        btn.style.opacity = "1";
     } else {
         suite.style.display = "block";
         btn.style.display = "none"; 
